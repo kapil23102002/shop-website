@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { login } from "../features/cartSlice";
 import "./login.css";
-const userData = [
+
+export const userData = [
   {
     id: 1,
     name: "Kapil Thakur",

@@ -9,6 +9,8 @@ import { NavDropdown } from "react-bootstrap";
 
 const App = () => {
   const { cart, wishlist } = useSelector((state) => state.allCart);
+  const user = useSelector((state) => state.allCart.user[0]);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,18 +21,28 @@ const App = () => {
     dispatch(logout());
     localStorage.removeItem("persist:root");
   };
+  let curDate = new Date();
+  curDate = curDate.getHours();
+  let greeting = "";
+
+  if (curDate >= 1 && curDate < 12) {
+    greeting = " Good Morning";
+  } else if (curDate >= 12 && curDate < 18) {
+    greeting = " Good Afternoon";
+  } else {
+    greeting = " Good Evening";
+  }
+
   return (
     <>
       <div className="main-navbar sticky-top">
         <div className="top_nav bg-primary ">
-          <Navbar
-            collapseOnSelect
-            expand="lg"
-            variant="primary"
-            className="main-navbar sticky-top"
-          >
+          <Navbar collapseOnSelect expand="lg" variant="primary">
             <Container fluid>
-              <Navbar.Brand href="/home">KAP Mart</Navbar.Brand>
+              <Navbar.Brand className="header " href="/home">
+                WELCOME TO KAP MART
+              </Navbar.Brand>
+              <Navbar.Brand className="header " href="/home"></Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="ms-auto" style={{ padding: "10px" }}>
@@ -101,7 +113,7 @@ const App = () => {
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
             >
-              <ul className="navbar-nav  me-auto mb-2 mb-lg-0">
+              <ul className="navbar-nav   mb-2 mb-lg-0">
                 <Stack direction="horizontal" gap={3}>
                   <li className="nav-item">
                     <Link to="/home" className="nav-link">
@@ -115,6 +127,9 @@ const App = () => {
                   </li>
                 </Stack>
               </ul>
+              <h3 style={{ marginLeft: "18rem" }}>
+                {greeting}, {user.name}
+              </h3>
             </div>
           </div>
         </nav>
