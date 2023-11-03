@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import productData from "../productData";
+import product from "../productData";
 
 const initialState = {
   cart: [],
   wishlist: [],
-  products: productData,
+  products: product,
   totalQuantity: 0,
   totalPrice: 0,
   isAuthenticated: false,

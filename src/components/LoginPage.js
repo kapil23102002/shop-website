@@ -10,7 +10,7 @@ const userData = [
     contact: "123456789",
     address: "Bhopal",
     birth: "1-10-2000",
-    username: "qwe@123",
+    username: "kapil@123",
     password: "123",
   },
 ];

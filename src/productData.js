@@ -111,7 +111,7 @@
 //   },
 // ];
 
-export default [
+const product = [
   {
     id: 1,
     title: "Foldsack Backpack",
@@ -333,3 +333,4 @@ export default [
     quantity: 1,
   },
 ];
+export default product;
