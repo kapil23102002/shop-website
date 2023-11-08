@@ -21,16 +21,20 @@ const App = () => {
     dispatch(logout());
     localStorage.removeItem("persist:root");
   };
-  let curDate = new Date();
+  let curDate = new Date(2023, 11, 3, 15);
   curDate = curDate.getHours();
   let greeting = "";
+  let styleCss = {};
 
   if (curDate >= 1 && curDate < 12) {
     greeting = " Good Morning";
+    styleCss.color = "green";
   } else if (curDate >= 12 && curDate < 18) {
     greeting = " Good Afternoon";
+    styleCss.color = "orange";
   } else {
     greeting = " Good Evening";
+    styleCss.color = "Black";
   }
 
   return (
@@ -128,7 +132,7 @@ const App = () => {
                 </Stack>
               </ul>
               <h3 style={{ marginLeft: "18rem" }}>
-                {greeting}, {user.name}
+                <span style={styleCss}> {greeting}</span>, {user.name}
               </h3>
             </div>
           </div>

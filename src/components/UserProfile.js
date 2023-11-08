@@ -22,7 +22,7 @@ function ProfilePage() {
                   <div className="col-sm-4 bg-c-lite-green user-profile">
                     <div className="card-block text-center text-white">
                       <div className="m-b-25">
-                        <img
+                        <image
                           src="https://img.icons8.com/bubbles/100/000000/user.png"
                           className="img-radius"
                           alt="User-Profile-Image"
