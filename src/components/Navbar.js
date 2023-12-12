@@ -131,8 +131,8 @@ const App = () => {
                   </li>
                 </Stack>
               </ul>
-              <h3 style={{ marginLeft: "18rem" }}>
-                <span style={styleCss}> {greeting}</span>, {user.name}
+              <h3 style={{ marginLeft: "22rem" }}>
+                <span style={{ styleCss }}> {greeting}</span>
               </h3>
             </div>
           </div>
