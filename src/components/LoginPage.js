@@ -14,10 +14,18 @@ export const userData = [
     username: "kapil@123",
     password: "123",
   },
+  {
+    id: 2,
+    name: "Neetesh Gupta",
+    contact: "123456780",
+    address: "Indore",
+    birth: "13-1-2000",
+    username: "neetesh@123",
+    password: "1234",
+  },
 ];
 
 const LoginPage = () => {
-  // const allCart = useSelector((state) => state.allCart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
@@ -29,7 +37,6 @@ const LoginPage = () => {
       dispatch(login({ ...userData }));
 
       navigate("/home");
-      // localStorage.setItem("allCart", "allCart");
     } else {
       alert("Please fill the correct details..");
     }
@@ -41,6 +48,7 @@ const LoginPage = () => {
     );
 
     if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
       return true;
     }
     return false;

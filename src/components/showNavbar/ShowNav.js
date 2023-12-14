@@ -6,7 +6,6 @@ const ShowNav = ({ children }) => {
   const [ShowNav, setShowNav] = useState(false);
 
   useEffect(() => {
-    // console.log("this location is:", location)
     if (location.pathname === "/") {
       setShowNav(false);
     } else {

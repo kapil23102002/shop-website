@@ -9,13 +9,13 @@ import { NavDropdown } from "react-bootstrap";
 
 const App = () => {
   const { cart, wishlist } = useSelector((state) => state.allCart);
-  const user = useSelector((state) => state.allCart.user[0]);
+  const userdata = JSON.parse(localStorage.getItem("user"));
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getCartTotal());
-  }, [cart]);
+  }, [cart, dispatch]);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -132,7 +132,9 @@ const App = () => {
                 </Stack>
               </ul>
               <h3 style={{ marginLeft: "22rem" }}>
-                <span style={{ styleCss }}> {greeting}</span>
+                <span style={{ styleCss }}>
+                  {greeting}, {userdata.name}
+                </span>
               </h3>
             </div>
           </div>

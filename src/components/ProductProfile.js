@@ -10,12 +10,10 @@ const ProductProfile = () => {
     <>
       <div className="container5 mt-5">
         <div className="row d-flex justify-content-center">
-          {console.log(items.id)}
-          {/* {items.map((items, index) => ( */}
           <div className="col-md-7">
             <div className="card p-3 py-4">
               <div className="text-center">
-                <img src={items.img} alt="Image" />
+                <img src={items.img} alt="pic" />
               </div>
               <div className="text-center mt-3">
                 <span className="bg-secondary p-1 px-4 rounded text-white">

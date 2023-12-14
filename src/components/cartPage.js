@@ -17,7 +17,7 @@ const CartPage = () => {
 
   useEffect(() => {
     dispatch(getCartTotal());
-  }, [cart]);
+  }, [cart, dispatch]);
 
   return (
     <>

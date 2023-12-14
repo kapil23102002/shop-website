@@ -35,7 +35,7 @@ const WishlistPage = () => {
                         <td width="45%">
                           <div className="display-flex align-center">
                             <div className="img-product">
-                              <img src={data.img} />
+                              <img src={data.img} alt="wish Product" />
                             </div>
                             <div className="name-product">{data.title}</div>
                           </div>
