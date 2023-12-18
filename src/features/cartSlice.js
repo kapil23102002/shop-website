@@ -82,8 +82,10 @@ const cartSlice = createSlice({
     },
 
     login: (state, action) => {
+      const userData = action.payload.user;
       state.isAuthenticated = true;
       state.user = { ...state.user, ...action.payload };
+      localStorage.setItem("user", JSON.stringify(userData));
     },
     logout: (state) => {
       state.isAuthenticated = false;

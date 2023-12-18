@@ -8,7 +8,7 @@ import WishlistPage from "./components/wishlistPage";
 import ProductProfile from "./components/ProductProfile";
 import Footer from "./components/Footer";
 import LoginPage from "./components/LoginPage";
-import ShowNav from "./components/showNavbar/ShowNav";
+// import ShowNav from "./components/showNavbar/ShowNav";
 import ProfilePage from "./components/UserProfile";
 import {
   ProtectedLoginRoute,
@@ -18,9 +18,9 @@ import {
 function App() {
   return (
     <BrowserRouter>
-      <ShowNav>
-        <Navbar />
-      </ShowNav>
+      {/* <ShowNav> */}
+      <Navbar />
+      {/* </ShowNav> */}
       <Routes>
         <Route
           exact

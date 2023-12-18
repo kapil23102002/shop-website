@@ -21,7 +21,7 @@ export const userData = [
     address: "Indore",
     birth: "13-1-2000",
     username: "neetesh@123",
-    password: "1234",
+    password: "123",
   },
 ];
 
@@ -30,29 +30,40 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  // const auth = useSelector((state) => state.allCart.isAuthenticated);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (isValidUser(username, password)) {
-      dispatch(login({ ...userData }));
-
+    const user = userData.find(
+      (user) => user.username === username && user.password === password
+    );
+    if (user) {
+      dispatch(login({ user }));
       navigate("/home");
     } else {
       alert("Please fill the correct details..");
     }
   };
 
-  const isValidUser = (username, password) => {
-    const user = userData.find(
-      (user) => user.username === username && user.password === password
-    );
+  // if (isValidUser(username, password)) {
+  //   dispatch(login({ ...userData }));
 
-    if (user) {
-      localStorage.setItem("user", JSON.stringify(user));
-      return true;
-    }
-    return false;
-  };
+  //   navigate("/home");
+  // } else {
+  //   alert("Please fill the correct details..");
+  // }
+
+  // const isValidUser = (username, password) => {
+  // const user = userData.find(
+  //   (user) => user.username === username && user.password === password
+  // );
+
+  //   if (user) {
+  //     localStorage.setItem("user", JSON.stringify(user));
+  //     return true;
+  //   }
+  //   return false;
+  // };
 
   return (
     <div className="Auth-form-container">
