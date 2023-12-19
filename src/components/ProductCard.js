@@ -10,7 +10,6 @@ const App = () => {
 
   const dispatch = useDispatch();
   const Navigate = useNavigate();
-  console.log(items);
   return (
     <div className="container5">
       <Row>

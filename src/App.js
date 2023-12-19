@@ -49,7 +49,7 @@ function App() {
         />
 
         <Route
-          path="/product/:productProfile"
+          path="/product/:productId"
           element={
             <ProtectedRoute>
               <ProductProfile />

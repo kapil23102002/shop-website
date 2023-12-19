@@ -18,7 +18,6 @@ const initialState = {
     password: null,
   },
 };
-console.log(products);
 const cartSlice = createSlice({
   name: "allCart",
   initialState,

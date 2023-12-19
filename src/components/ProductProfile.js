@@ -1,52 +1,50 @@
-// import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { addToCart, addWishlist } from "../features/cartSlice";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart, addWishlist } from "../features/cartSlice";
+import "./ProductProfile.css";
 
-// const ProductProfile = () => {
-//   const items = useSelector((state) => state.allCart.items);
-//   const dispatch = useDispatch();
+const ProductProfile = () => {
+  const data = useSelector((state) => state.allCart.products);
+  const dispatch = useDispatch();
+  const { productId } = useParams();
 
-//   return (
-//     <>
-//       <div className="container5 mt-5">
-//         <div className="row d-flex justify-content-center">
-//           <div className="col-md-7">
-//             <div className="card p-3 py-4">
-//               <div className="text-center">
-//                 <img src={items.img} alt="pic" />
-//               </div>
-//               <div className="text-center mt-3">
-//                 <span className="bg-secondary p-1 px-4 rounded text-white">
-//                   {items.shippingDetails}
-//                 </span>
-//                 <h1 className="mt-2 mb-0">{items.title}</h1>
-//                 <span>${items.price}</span>
+  const product = data.find((product) => String(product.id) === productId);
+  console.log(product);
+  const { img, title, price, description, category } = product;
 
-//                 <div className="px-4 mt-1">
-//                   <p className="fonts">{items.description}</p>
-//                 </div>
+  return (
+    <>
+      <main className="container">
+        <div className="left-column">
+          <img data-image="red" class="active" src={img} alt="" />
+        </div>
 
-//                 <div className="buttons">
-//                   <button
-//                     className="btn btn-primary px-4"
-//                     onClick={() => dispatch(addToCart(items))}
-//                   >
-//                     Add to Cart
-//                   </button>
-//                   <button
-//                     className="btn btn-outline-primary px-4 ms-3"
-//                     onClick={() => dispatch(addWishlist(items))}
-//                   >
-//                     Wishlist
-//                   </button>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//           {/* ))} */}
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-// export default ProductProfile;
+        <div className="right-column">
+          <div className="product-description">
+            <span>{category}</span>
+            <h3>{title}</h3>
+            <p>{description}</p>
+          </div>
+
+          <div className="product-price">
+            <span>${price}</span>
+            <button
+              className="cart-btn"
+              onClick={() => dispatch(addToCart(product))}
+            >
+              Add to Cart
+            </button>
+            <button
+              className="cart-btn"
+              onClick={() => dispatch(addWishlist(product))}
+            >
+              Wishlist
+            </button>
+          </div>
+        </div>
+      </main>
+    </>
+  );
+};
+export default ProductProfile;
