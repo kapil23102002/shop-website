@@ -10,6 +10,7 @@ const App = () => {
 
   const dispatch = useDispatch();
   const Navigate = useNavigate();
+
   return (
     <div className="container5">
       <Row>
@@ -25,7 +26,7 @@ const App = () => {
                 />
                 <Card.Body style={{ height: "5rem" }}>
                   <Card.Title>{item.title}</Card.Title>
-                  <Card.Text>{item.price}</Card.Text>
+                  <Card.Text>${item.price}</Card.Text>
                 </Card.Body>
                 <Card.Body>
                   <Button

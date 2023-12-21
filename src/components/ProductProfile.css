@@ -36,6 +36,7 @@ html, body {
    
   .left-column img.active {
     opacity: 1;
+    height: 390px;
   }
 
 /* Product Description */
@@ -175,6 +176,7 @@ html, body {
     text-decoration: none;
     padding: 12px 30px;
     transition: all .5s;
+    margin: auto;
   }
   .cart-btn:hover {
     background-color: #64af3d;

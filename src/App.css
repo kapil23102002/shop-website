@@ -5,6 +5,12 @@
     rgba(37, 117, 252, 1)
   );
 } */
+body {
+  min-height: 100%;
+  max-width: 100%;
+  background-color: papayawhip; 
+  margin: 0 auto;
+}
 .App {
   text-align: center;
 }

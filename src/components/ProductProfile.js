@@ -17,7 +17,7 @@ const ProductProfile = () => {
     <>
       <main className="container">
         <div className="left-column">
-          <img data-image="red" class="active" src={img} alt="" />
+          <img data-image="red" className="active" src={img} alt="" />
         </div>
 
         <div className="right-column">
