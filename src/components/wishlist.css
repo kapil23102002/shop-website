@@ -1,11 +1,12 @@
 .cart-wrap {
-	padding: 40px 0;
+	padding: 0 0;
 	font-family: 'Open Sans', sans-serif;
-    margin-bottom: -151px;
+   width: 130%;
 }
 .main-heading {
 	font-size: 19px;
 	margin-bottom: 20px;
+    justify-content: center;
 }
 .table-wishlist table {
     width: 100%;
