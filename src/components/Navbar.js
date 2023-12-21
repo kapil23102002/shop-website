@@ -2,14 +2,16 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Navbar.css";
 import { getCartTotal, logout } from "../features/cartSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Navbar, Nav, Badge, Container, Stack } from "react-bootstrap";
 import { NavDropdown } from "react-bootstrap";
 
 const App = () => {
   const { cart, wishlist } = useSelector((state) => state.allCart);
-  const auth = useSelector((state) => state.allCart.isAuthenticated);
+  // const auth = useSelector((state) => state.allCart.isAuthenticated);
+  const auth = JSON.parse(localStorage.getItem("isAuthentication"));
+  const navigate = useNavigate();
 
   let usr = JSON.parse(localStorage.getItem("user"));
   const dispatch = useDispatch();
@@ -20,7 +22,8 @@ const App = () => {
 
   const handleLogout = () => {
     dispatch(logout());
-    localStorage.removeItem("user");
+    navigate("/");
+    // localStorage.removeItem("user");
   };
 
   let curDate = new Date();

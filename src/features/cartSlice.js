@@ -1,12 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
 import products from "../app/data";
 
+const cartItems =
+  localStorage.getItem("cart") !== null
+    ? JSON.parse(localStorage.getItem("cart"))
+    : [];
+
+const wishlistItems =
+  localStorage.getItem("wishlist") !== null
+    ? JSON.parse(localStorage.getItem("wishlist"))
+    : [];
+
+const ItemsQuantity =
+  localStorage.getItem("Total_Quantity") !== null
+    ? JSON.parse(localStorage.getItem("Total_Quantity"))
+    : 0;
+
+const ItemsPrice =
+  localStorage.getItem("Total_Price") !== null
+    ? JSON.parse(localStorage.getItem("Total_Price"))
+    : 0;
+
 const initialState = {
-  cart: [],
-  wishlist: [],
+  cart: cartItems,
+  wishlist: wishlistItems,
   products: products,
-  totalQuantity: 0,
-  totalPrice: 0,
+  totalQuantity: ItemsQuantity,
+  totalPrice: ItemsPrice,
   isAuthenticated: false,
   user: {
     id: null,
@@ -29,6 +49,10 @@ const cartSlice = createSlice({
       } else {
         state.cart.push(action.payload);
       }
+      localStorage.setItem(
+        "cart",
+        JSON.stringify(state.cart.map((item) => item))
+      );
     },
 
     addWishlist: (state, action) => {
@@ -36,6 +60,10 @@ const cartSlice = createSlice({
       if (!wish) {
         state.wishlist.push(action.payload);
       } else alert("kapil");
+      localStorage.setItem(
+        "wishlist",
+        JSON.stringify(state.wishlist.map((item) => item))
+      );
     },
 
     getCartTotal: (state) => {
@@ -54,6 +82,11 @@ const cartSlice = createSlice({
       );
       state.totalPrice = parseInt(totalPrice.toFixed(2));
       state.totalQuantity = totalQuantity;
+      localStorage.setItem(
+        "Total_Quantity",
+        JSON.stringify(state.totalQuantity)
+      );
+      localStorage.setItem("Total_Price", JSON.stringify(state.totalPrice));
     },
 
     removeItem: (state, action) => {
@@ -86,10 +119,18 @@ const cartSlice = createSlice({
       state.isAuthenticated = true;
       state.user = { ...state.user, ...action.payload };
       localStorage.setItem("user", JSON.stringify(userData));
+      localStorage.setItem(
+        "isAuthentication",
+        JSON.stringify(state.isAuthenticated)
+      );
     },
     logout: (state) => {
       state.isAuthenticated = false;
       state.user = {};
+      localStorage.setItem(
+        "isAuthentication",
+        JSON.stringify(state.isAuthenticated)
+      );
     },
   },
 });
