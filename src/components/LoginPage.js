@@ -30,7 +30,6 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  // const auth = useSelector((state) => state.allCart.isAuthenticated);
 
   const handleSubmit = (e) => {
     e.preventDefault();

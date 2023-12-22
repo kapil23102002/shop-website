@@ -82,11 +82,11 @@ const cartSlice = createSlice({
       );
       state.totalPrice = parseInt(totalPrice.toFixed(2));
       state.totalQuantity = totalQuantity;
-      localStorage.setItem(
-        "Total_Quantity",
-        JSON.stringify(state.totalQuantity)
-      );
-      localStorage.setItem("Total_Price", JSON.stringify(state.totalPrice));
+      // localStorage.setItem(
+      //   "Total_Quantity",
+      //   JSON.stringify(state.totalQuantity)
+      // );
+      // localStorage.setItem("Total_Price", JSON.stringify(state.totalPrice));
     },
 
     removeItem: (state, action) => {
@@ -115,7 +115,7 @@ const cartSlice = createSlice({
     },
 
     login: (state, action) => {
-      const userData = action.payload.user;
+      const userData = action.payload.user.name;
       state.isAuthenticated = true;
       state.user = { ...state.user, ...action.payload };
       localStorage.setItem("user", JSON.stringify(userData));
@@ -129,7 +129,8 @@ const cartSlice = createSlice({
       state.user = {};
       localStorage.setItem(
         "isAuthentication",
-        JSON.stringify(state.isAuthenticated)
+        JSON.stringify(state.isAuthenticated),
+        localStorage.removeItem("user")
       );
     },
   },

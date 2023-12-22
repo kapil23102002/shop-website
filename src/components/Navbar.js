@@ -9,12 +9,11 @@ import { NavDropdown } from "react-bootstrap";
 
 const App = () => {
   const { cart, wishlist } = useSelector((state) => state.allCart);
-  // const auth = useSelector((state) => state.allCart.isAuthenticated);
-  const auth = JSON.parse(localStorage.getItem("isAuthentication"));
-  const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user"));
 
-  let usr = JSON.parse(localStorage.getItem("user"));
+  const auth = JSON.parse(localStorage.getItem("isAuthentication"));
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getCartTotal());
@@ -22,9 +21,12 @@ const App = () => {
 
   const handleLogout = () => {
     dispatch(logout());
-    navigate("/");
-    // localStorage.removeItem("user");
+
+    localStorage.removeItem("isAuthentication");
   };
+  useEffect(() => {
+    navigate("/login");
+  }, [auth]);
 
   let curDate = new Date();
   curDate = curDate.getHours();
@@ -148,7 +150,7 @@ const App = () => {
                 </ul>
                 <h3 style={{ marginLeft: "22rem" }}>
                   <span style={{ styleCss }}>
-                    {greeting},{usr.name}
+                    {greeting}, {user}
                   </span>
                 </h3>
               </div>

@@ -24,7 +24,7 @@ function App() {
       <Routes>
         <Route
           exact
-          path="/"
+          path="/login"
           element={
             <ProtectedLoginRoute>
               <LoginPage />

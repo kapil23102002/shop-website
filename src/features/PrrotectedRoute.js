@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom";
 const ProtectedRoute = ({ children }) => {
   // const isAuthenticated = useSelector((state) => state.allCart.isAuthenticated);
   const isAuthenticated = JSON.parse(localStorage.getItem("isAuthentication"));
-  return isAuthenticated ? children : <Navigate to="/" />;
+  return isAuthenticated ? children : <Navigate to="/login" />;
 };
 
 const ProtectedLoginRoute = ({ children }) => {
