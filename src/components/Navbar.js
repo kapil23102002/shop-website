@@ -9,7 +9,7 @@ import { NavDropdown } from "react-bootstrap";
 
 const App = () => {
   const { cart, wishlist } = useSelector((state) => state.allCart);
-  const user = JSON.parse(localStorage.getItem("user"));
+  const User = JSON.parse(localStorage.getItem("user"));
 
   const auth = JSON.parse(localStorage.getItem("isAuthentication"));
   const dispatch = useDispatch();
@@ -150,7 +150,7 @@ const App = () => {
                 </ul>
                 <h3 style={{ marginLeft: "22rem" }}>
                   <span style={{ styleCss }}>
-                    {greeting}, {user}
+                    {greeting}, {User.name}
                   </span>
                 </h3>
               </div>
